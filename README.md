@@ -26,8 +26,8 @@ I build production AI systems on healthcare data, from SQL feature pipelines on 
 
 | | |
 |---|---|
-| **Now** | Data Scientist, U.S. Department of Veterans Affairs &nbsp;·&nbsp; Intermediate Data Analyst, UAMS College of Pharmacy |
-| **Finishing** | PhD in Biomedical Informatics, UAMS (expected 2026) |
+| **Now** | Data Scientist, U.S. Department of Veterans Affairs (since Aug 2023) &nbsp;·&nbsp; Intermediate Data Analyst, UAMS College of Pharmacy (since Jul 2026) |
+| **Finishing** | PhD Candidate, Biomedical Informatics, UAMS (expected 2026, degree not yet awarded) |
 | **Looking for** | GenAI Research Scientist, AI/ML Engineer, and Data Scientist roles in DFW or remote |
 | **Also** | Co-founder and Chief Research Officer, [ResearchBuddy AI](https://researchbuddy.tech) |
 
@@ -35,7 +35,7 @@ I build production AI systems on healthcare data, from SQL feature pipelines on 
 
 ## Contents
 
-[Selected work](#selected-work) &nbsp;·&nbsp; [Pinned repositories](#pinned-repositories) &nbsp;·&nbsp; [Research](#research) &nbsp;·&nbsp; [Tech stack](#tech-stack) &nbsp;·&nbsp; [Publications](#publications-and-certifications) &nbsp;·&nbsp; [Activity](#activity) &nbsp;·&nbsp; [Contact](#contact)
+[Selected work](#selected-work) &nbsp;·&nbsp; [Experience](#experience) &nbsp;·&nbsp; [Pinned repositories](#pinned-repositories) &nbsp;·&nbsp; [Research](#research) &nbsp;·&nbsp; [Tech stack](#tech-stack) &nbsp;·&nbsp; [Publications](#publications-and-certifications) &nbsp;·&nbsp; [Activity](#activity) &nbsp;·&nbsp; [Contact](#contact)
 
 ---
 
@@ -58,9 +58,14 @@ Built and deployed a retrieval system over two client contract corpora totaling 
 
 **Ground truth from nothing.** No evaluation set existed. I worked with stakeholders to define the 14 contract attributes auditors actually care about (provider name, NPI, tax ID, DRG, CPT, HCPCS, and others), sampled 720 pages from 4,236, extracted labels via probabilistic, deterministic, and LLM-assisted methods, then manually validated every page.
 
-**Retrieval.** Hybrid lexical and semantic search through a LangChain ensemble retriever weighted 0.7 semantic to 0.3 lexical, with E5-Mistral embeddings and `gpt-4.1-mini` handling reranking and redundancy filtering.
+**Retrieval.** Hybrid lexical and semantic search through a LangChain ensemble retriever weighted 0.7 semantic to 0.3 lexical. E5-Mistral embeddings were served on a managed Ray cluster that I consumed rather than hosted or operated. `gpt-4.1-mini` handled reranking and redundancy filtering. Cross-encoder rerankers were benchmarked but never shipped.
 
-**Evaluation.** 73% F1@10 on retrieval against the labeled ground truth (client 1). Generation quality on the second corpus scored 2.5 out of 3 via LLM-as-judge citation review with parallel human review (client 2). These are separate corpora and the metrics do not transfer between them.
+**Scoping controls.** Metadata filtering shipped as a user-facing control, letting users restrict a chat session to selected documents by provider name and other attributes.
+
+**Evaluation.** Two clients, two separate measurements, which do not transfer between corpora:
+
+- **Client 1, retrieval:** 73% F1@10 against the 720-page labeled ground truth set. This describes client 1's evaluation set, not the full 35,000-document corpus.
+- **Client 2, generation:** 2.5 out of 3, via LLM-as-judge citation scoring with parallel human review.
 
 **Deployment.** Streamlit on AWS EC2 behind an ALB and Route 53 with feedback capture to S3, later migrated to Databricks.
 
@@ -70,11 +75,24 @@ Built and deployed a retrieval system over two client contract corpora totaling 
 
 ### Veteran risk stratification
 
-Improved identification of high-risk veterans from a 50% baseline to F1 0.88 (AUC-ROC 0.76) with a Gradient Boosting model in Python on VA Corporate Data Warehouse time-series and claims data. Deployed clinical decision support dashboards in Power BI for real-time risk stratification.
+At the VA, improved identification of high-risk veterans from a 50% baseline to F1 0.88 (AUC-ROC 0.76) with a Gradient Boosting model in Python on VA Corporate Data Warehouse time-series and claims data. Deployed clinical decision support dashboards in Power BI for real-time risk stratification.
 
 ### ResearchBuddy AI
 
 Most students who want to do research never get the chance, not for lack of ability but for lack of access to a supervisor. ResearchBuddy AI is an AI-powered virtual lab connecting 2,000+ researchers with 100+ supervisors worldwide. I co-founded it in 2025. [researchbuddy.tech](https://researchbuddy.tech)
+
+---
+
+## Experience
+
+| Role | Organization | Location | Dates |
+|---|---|---|---|
+| Data Scientist | U.S. Department of Veterans Affairs | Little Rock, AR | Aug 2023 - Present |
+| Intermediate Data Analyst | College of Pharmacy, UAMS | Little Rock, AR | Jul 2026 - Present |
+| Gen AI Research Scientist (Intern) | Cotiviti Inc. | Dallas, TX | Oct 2025 - Jun 2026 |
+| Intermediate Data Analyst | Institute for Digital Health & Innovation, UAMS | Little Rock, AR | Jun 2023 - Jun 2026 |
+| Data Scientist | COSMOS, UA Little Rock | Little Rock, AR | Aug 2021 - May 2023 |
+| Electrical Data Analyst | Renata Limited | Dhaka, Bangladesh | Nov 2019 - Jul 2021 |
 
 ---
 
@@ -86,8 +104,6 @@ Most students who want to do research never get the chance, not for lack of abil
 | [**Predicting Dropout from MOUD**](https://github.com/Nahiyan140212/Predicting-Dropout-from-Medication-for-Opioid-Use-Disorder) | Predicts retention in medication for opioid use disorder treatment, combining machine learning with statistical modeling to identify patients at risk of dropping out. | Python, scikit-learn |
 | [**Anemia Detection from Conjunctiva Images**](https://github.com/Nahiyan140212/Detection-of-Anemia-from-Eye-Conjunctiva-Images-using-Deep-Learning) | Screens for anemia from a photograph of the eye conjunctiva. A user uploads a cropped image and the model returns a prediction. Non-invasive screening for settings where bloodwork is not available. | Python, deep learning, computer vision |
 | [**Chest Disease Classification from CT**](https://github.com/Nahiyan140212/Chest-Disease-Classification-from-Chest-CT-Scan-Image) | Classifies chest disease from CT scan images through an end-to-end training and inference pipeline. | Jupyter, deep learning |
-| [**MediGuide AI**](https://github.com/Nahiyan140212/MediGuide-AI) | TODO: one sentence on what it does and who it is for. | Jupyter |
-| [**SharedSkillet**](https://github.com/Nahiyan140212/SharedSkillet) | TODO: one sentence on what it does and who it is for. | HTML |
 
 ---
 
@@ -98,7 +114,7 @@ Most students who want to do research never get the chance, not for lack of abil
 | **Clinical substance use detection** | Meditron3-8B fine-tuned via QLoRA across 8 substance labels on 8,053 clinical notes (MIMIC-Ext) | 0.952 micro F1, a 30%+ gain over the SVM baseline across an 8-model benchmark |
 | **Sepsis prediction from clinical notes** | Llama-3 8B and Meditron3-8B fine-tuned on MIMIC-IV across multiple prediction horizons, trained on a single 24GB VRAM GPU | Abstract submitted to AMIA 2026 |
 | **Clinical discharge summarization** | HIPAA-compliant pipeline on AWS Bedrock benchmarking Claude 3 Haiku, Llama-3 8B, and Titan on MIMIC-IV, scored with LLM-as-judge and ANOVA/Tukey | Best F1 0.82 |
-| **STEADI fall prevention** (PhD dissertation) | LLM and RAG pipeline extracting fall-prevention protocol adoption signals from physical therapy notes via QLoRA fine-tuned open models | Proposal defended |
+| **STEADI fall prevention** (PhD dissertation) | LLM and RAG pipeline extracting fall-prevention protocol adoption signals from physical therapy notes via QLoRA fine-tuned open models | Proposal defended, research not yet begun |
 
 ---
 
@@ -144,7 +160,7 @@ Most students who want to do research never get the chance, not for lack of abil
 
 Published in *Addiction*, *Journal of Addictive Diseases*, and *BMC Pregnancy & Childbirth*, among others. Full list on [Google Scholar](https://scholar.google.com/citations?user=GwgCEz8AAAAJ&hl=en).
 
-Representative work includes a regression analysis of 180,000+ patient records showing that telehealth-based opioid use disorder care is linked to fewer ER visits and increased medication receipt.
+Representative work includes a regression analysis of 180,000+ patient records showing that telehealth-based opioid use disorder care is linked to fewer ER visits and increased medication receipt. Best Paper Award at HUSO 2023 for a comparison of toxicity across social media platforms in COVID-19 discourse.
 
 <p>
   <img src="https://img.shields.io/badge/AWS%20Certified%20Cloud%20Practitioner-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white" alt="AWS Cloud Practitioner"/>
@@ -154,8 +170,8 @@ Representative work includes a regression analysis of 180,000+ patient records s
 
 **Education**
 
-- PhD Candidate, Biomedical Informatics, University of Arkansas for Medical Sciences (expected 2026)
-- M.S. Information Science, University of Arkansas at Little Rock, with a Graduate Certificate in Data Science
+- PhD Candidate, Biomedical Informatics, University of Arkansas for Medical Sciences (expected 2026, degree not yet awarded). Dissertation proposal defended: *Assessing STEADI Fall-Prevention Adoption in Physical Therapy Practice for Older Adult Patients Using Privacy-Preserving Language Models*
+- M.S. Information Science, University of Arkansas at Little Rock, with a Graduate Certificate in Data Science. Thesis: *Toxicity and Reddit: A Study of Harmful Effects on User Engagement and Community Health*
 - B.Sc. Electrical & Electronic Engineering, Chittagong University of Engineering & Technology
 
 ---
